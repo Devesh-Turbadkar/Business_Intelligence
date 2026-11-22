@@ -1,7 +1,7 @@
 .env
 guide.txt
 PROJECT_WORKFLOW_AND_INTERVIEW_PREP.txt
-
+.gitignore
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
