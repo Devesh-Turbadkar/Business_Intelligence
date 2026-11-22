@@ -1,3 +1,7 @@
+.env
+guide.txt
+PROJECT_WORKFLOW_AND_INTERVIEW_PREP.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -222,6 +226,4 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-.env
-guide.txt
-PROJECT_WORKFLOW_AND_INTERVIEW_PREP.txt
+
