@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amazon Product Intelligence Dashboard</title>
+  <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+<header>
+  <div><p class="eyebrow">BUSINESS INTELLIGENCE</p><h1>Product Intelligence Dashboard</h1>
+  <p class="sub">A data-driven view of product pricing, ratings and categories</p></div>
+  <a class="api-link" href="/api/products/">Explore API</a>
+</header>
+<main>
+  <section class="kpis" id="kpis">
+    <article><span>Total products</span><strong id="total">—</strong></article>
+    <article><span>Average price</span><strong id="avg-price">—</strong></article>
+    <article><span>Median price</span><strong id="median-price">—</strong></article>
+    <article><span>Average rating</span><strong id="avg-rating">—</strong></article>
+    <article><span>Total reviews</span><strong id="reviews">—</strong></article>
+  </section>
+  <section class="panel">
+    <div class="panel-heading"><div><h2>Product catalogue</h2><p>Search, filter and sort the stored dataset</p></div>
+      <button id="refresh">Refresh data</button></div>
+    <div class="controls">
+      <input id="search" placeholder="Search product or category">
+      <select id="category"><option value="">All categories</option></select>
+      <select id="ordering"><option value="name">Name A–Z</option><option value="-price">Price high to low</option><option value="price">Price low to high</option><option value="-rating">Rating high to low</option></select>
+    </div>
+    <div class="table-wrap"><table><thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Rating</th><th>Reviews</th></tr></thead><tbody id="products"></tbody></table></div>
+    <p id="status" class="status"></p>
+  </section>
+  <section class="two-col">
+    <article class="panel"><h2>Category analysis</h2><div id="categories" class="bars"></div></article>
+    <article class="panel"><h2>Price distribution</h2><div id="prices" class="bars"></div></article>
+  </section>
+  <section class="panel"><h2>Top-rated products</h2><div id="top-rated" class="top-list"></div></section>
+  <p class="footnote">Demo dataset for project demonstration. Replace it with lawfully collected or licensed product data before making real-world claims.</p>
+</main>
+<script src="/static/js/dashboard.js"></script>
+</body>
+</html>

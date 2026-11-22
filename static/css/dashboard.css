@@ -1,0 +1,12 @@
+:root{font-family:Inter,Segoe UI,Arial,sans-serif;color:#172033;background:#f4f6fb}
+*{box-sizing:border-box}body{margin:0}header{background:#101b35;color:white;padding:34px max(5vw,24px);display:flex;justify-content:space-between;align-items:center;gap:20px}
+.eyebrow{letter-spacing:2px;color:#93b4ff;font-size:11px;font-weight:700}h1{font-size:clamp(26px,4vw,38px);margin:8px 0}.sub{color:#bdc9df;margin:0}.api-link,button{background:#4169e1;color:white;padding:11px 16px;border:0;border-radius:8px;text-decoration:none;font-weight:600;cursor:pointer}
+main{max-width:1200px;margin:28px auto;padding:0 20px}.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:20px}
+.kpis article,.panel{background:white;border:1px solid #e6eaf2;border-radius:14px;padding:20px;box-shadow:0 5px 20px #17203308}
+.kpis span{display:block;color:#667085;font-size:13px}.kpis strong{display:block;font-size:26px;margin-top:10px}
+.panel{margin-bottom:18px}.panel h2{font-size:18px;margin:0 0 6px}.panel-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}.panel-heading p{margin:0 0 16px;color:#667085;font-size:13px}
+.controls{display:flex;gap:10px;margin:15px 0}.controls input,.controls select{padding:11px;border:1px solid #d8deea;border-radius:8px;background:white;min-width:0}
+.controls input{flex:1}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:12px;border-bottom:1px solid #edf0f5}th{color:#667085;font-size:12px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}.bars{display:grid;gap:13px;margin-top:18px}.bar-row{display:grid;grid-template-columns:110px 1fr 35px;gap:9px;align-items:center;font-size:13px}.bar-bg{height:10px;background:#edf1f8;border-radius:20px;overflow:hidden}.bar{height:100%;background:#5578e8;border-radius:20px}
+.top-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.top-item{padding:12px;background:#f7f8fc;border-radius:9px;font-size:14px}.top-item small{display:block;color:#667085;margin-top:5px}.status,.footnote{color:#667085;font-size:12px}.footnote{text-align:center;margin:24px}
+@media(max-width:850px){.kpis{grid-template-columns:repeat(2,1fr)}.two-col{grid-template-columns:1fr}}@media(max-width:520px){header{align-items:flex-start;flex-direction:column}.controls{flex-direction:column}.top-list{grid-template-columns:1fr}.kpis strong{font-size:21px}}

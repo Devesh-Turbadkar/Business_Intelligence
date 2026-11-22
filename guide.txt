@@ -1,0 +1,148 @@
+BUSINESS INTELLIGENCE (BI) DJANGO PROJECT — QUICK FOLDER GUIDE
+
+Project folder
+
+Business_Intellicience_bi/ This is the main project folder. It contains
+the Django project, app, data, environment settings, and the files
+needed to run the application.
+
+1. config/ (Django project configuration)
+
+This folder controls the whole Django project.
+
+-   settings.py Main settings: installed apps, database connection,
+    templates, static files, middleware, and other Django configuration.
+
+-   urls.py Main URL map. It connects browser/API URLs to the correct
+    views. In this project: / -> dashboard_page /api/ -> ProductViewSet
+    routes /api/analytics/… -> analytics functions
+
+-   asgi.py Entry point for ASGI servers (used for async-capable
+    deployment).
+
+-   wsgi.py Entry point commonly used by production web servers.
+
+2. products/ (our Django application)
+
+This folder contains the product-related functionality.
+
+-   models.py OUR DATABASE MODEL is here. Product describes the fields
+    stored for each product, such as name, category, price, rating,
+    review_count, product_url, and source. Django uses this model to
+    work with the database table.
+
+-   serializers.py Converts Product model records into API-friendly data
+    (such as JSON), and validates incoming data when creating or
+    updating products.
+
+-   views.py Contains the application logic for API requests and web
+    pages. ProductViewSet provides product CRUD operations.
+    dashboard_page renders the dashboard HTML page.
+
+-   urls.py App-level URL routes, if included by the main
+    config/urls.py. NOTE: The main config/urls.py code shared in this
+    project currently defines its own router, so this app-level urls.py
+    may not currently be used.
+
+-   admin.py Registers models so they can be viewed/managed in Django
+    admin.
+
+-   tests.py Place for automated tests of the app.
+
+-   migrations/ Database change history created by Django when models
+    change. Migrations help keep the database schema in sync with
+    models.
+
+-   analytics.py Contains analytics API functions, such as summary,
+    categories, top-rated products, and price/rating distributions.
+    These functions query Product records and return calculated results.
+
+-   management/commands/ Custom Django management commands. The
+    import_products.py command imports product records from a CSV file.
+
+3. templates/
+
+Contains HTML templates shown in the browser. - dashboard.html The
+dashboard page rendered by dashboard_page() in products/views.py.
+
+4. static/ (if present)
+
+Contains frontend files such as CSS, JavaScript, and images used by the
+dashboard. These files control appearance and browser-side interactions.
+
+5. data/
+
+Contains input datasets, for example: - sample_products.csv Sample
+product data imported into the database. This is a sample dataset, not
+live Amazon data.
+
+6. bi_env/
+
+Python virtual environment. It contains the Python interpreter and
+installed packages for this project. Activate it before running project
+commands.
+
+7. .env
+
+Stores environment variables, especially database connection details.
+For example: - DB_NAME - DB_USER - DB_PASSWORD - DB_HOST - DB_PORT
+
+Do not upload real passwords or secret keys to GitHub.
+
+8. manage.py
+
+Django command-line entry point. We use it to run the server, apply
+migrations, import CSV data, and open the Django shell.
+
+HOW THE MAIN PARTS CONNECT
+
+CSV file | v import_products.py | v Product model (products/models.py) |
+v PostgreSQL database | +–> Product API (ProductViewSet +
+ProductSerializer) | +–> Analytics functions (products/analytics.py) | v
+API JSON responses / dashboard page (dashboard.html)
+
+DATABASE CONNECTION
+
+-   .env contains the database connection values.
+-   config/settings.py reads those values (using python-dotenv).
+-   Django’s DATABASES setting uses them to connect to PostgreSQL.
+-   products/models.py defines the structure of product records.
+-   PostgreSQL stores the actual records.
+
+IMPORTANT API FILES
+
+-   config/urls.py -> connects URL paths to views.
+-   products/views.py -> product API ViewSet and dashboard page.
+-   products/serializers.py -> converts and validates product data.
+-   products/analytics.py -> analytics API calculations.
+-   products/models.py -> database model.
+
+Useful URLs (based on the shared config/urls.py)
+
+-   http://127.0.0.1:8000/ Dashboard page.
+
+-   http://127.0.0.1:8000/api/products/ Product API list (GET); also
+    supports other CRUD methods through ModelViewSet.
+
+-   http://127.0.0.1:8000/api/analytics/summary/ Analytics summary API.
+
+-   http://127.0.0.1:8000/api/analytics/categories/ Category analytics
+    API.
+
+SHORT DEFINITIONS
+
+Model = describes the database table and its fields. Database = stores
+the actual records. Serializer = converts/validates data for APIs. View
+= contains the logic for handling a request. URL = decides which view
+handles a request. Template = HTML page shown in the browser. Static =
+CSS, JavaScript, and images. Migration = recorded database structure
+change. API = a way for another program or frontend to request data.
+.env = configuration values such as database credentials.
+
+NOTE
+
+This guide is based on the files and code shared so far. Some folders
+(for example static/) may have a different name or may not exist in the
+current project. Also, the database schema previously needed manual
+fixes; avoid changing or deleting migration/database files without
+checking first.
