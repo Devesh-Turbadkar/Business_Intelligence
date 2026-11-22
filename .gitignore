@@ -221,3 +221,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+.env
+guide.txt
+PROJECT
+PROJECT_WORKFLOW_AND_INTERVIEW_PREP.txt
