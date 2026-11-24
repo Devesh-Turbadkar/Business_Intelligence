@@ -19,4 +19,4 @@ py manage.py migrate
 py manage.py import_products data/sample_products.csv
 py manage.py runserver
 Open http://127.0.0.1:8000/
-The included CSV is fictional demo data, not live Amazon data.
+The included CSV is fictional demo data, not live data.
